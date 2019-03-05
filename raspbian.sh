@@ -113,18 +113,6 @@ git pull
 qmake "USE_UPNP=1" "USE_QRCODE=1" OPENSSL_INCLUDE_PATH=/usr/local/ssl/include OPENSSL_LIB_PATH=/usr/local/ssl/lib denarius-qt.pro
 make -j4
 sudo cp ~/denarius/Denarius /usr/local/bin/Denarius
-
-echo "Populate denarius.conf"
-mkdir ~/.denarius
-    # Get VPS IP Address
-    VPSIP=$(curl ipinfo.io/ip)
-    # create rpc user and password
-    rpcuser=$(openssl rand -base64 24)
-    # create rpc password
-    rpcpassword=$(openssl rand -base64 48)
-    echo -n "What is your fortunastakeprivkey? (Hint:genkey output)"
-    read FORTUNASTAKEPRIVKEY
-    echo -e "rpcuser=$rpcuser\nrpcpassword=$rpcpassword\nserver=1\nlisten=1\ndaemon=1\nport=9999\naddnode=denarius.host\naddnode=denarius.win\naddnode=denarius.pro\naddnode=triforce.black\nrpcallowip=127.0.0.1\nexternalip=$VPSIP:9999\nfortunastake=1\nfortunastakeprivkey=$FORTUNASTAKEPRIVKEY" > ~/.denarius/denarius.conf
                 ;;
         3)      echo 3 "Get Chaindata"
 
