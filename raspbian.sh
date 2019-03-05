@@ -17,11 +17,15 @@ echo "Installing PWGEN"
 sudo apt-get install -y pwgen
 
 echo "Installing 2G Swapfile"
-sudo fallocate -l 2G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=2048/' /etc/dphys-swapfile
+sudo /etc/init.d/dphys-swapfile stop
+sudo /etc/init.d/dphys-swapfile start
+free -m
+#sudo fallocate -l 2G /swapfile
+#sudo chmod 600 /swapfile
+#sudo mkswap /swapfile
+#sudo swapon /swapfile
+#echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 echo "Installing Dependencies"
 sudo apt-get --assume-yes install git unzip build-essential libssl-dev libdb++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libgmp-dev libevent-dev autogen automake  libtool
@@ -80,11 +84,15 @@ echo "Installing curl"
 sudo apt-get install curl -y
 
 echo "Installing 2G Swapfile"
-sudo fallocate -l 2G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=2048/' /etc/dphys-swapfile
+sudo /etc/init.d/dphys-swapfile stop
+sudo /etc/init.d/dphys-swapfile start
+free -m
+#sudo fallocate -l 2G /swapfile
+#sudo chmod 600 /swapfile
+#sudo mkswap /swapfile
+#sudo swapon /swapfile
+#echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 echo "Installing Dependencies"
 sudo apt-get --assume-yes install git unzip build-essential libdb++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libevent-dev autogen automake libtool libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools qt5-default
