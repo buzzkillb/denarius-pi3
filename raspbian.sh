@@ -118,7 +118,7 @@ git clone https://github.com/carsenk/denarius
 cd denarius
 git checkout v3.4
 git pull
-qmake "USE_UPNP=1" "USE_QRCODE=1" OPENSSL_INCLUDE_PATH=/usr/local/ssl/include OPENSSL_LIB_PATH=/usr/local/ssl/lib denarius-qt.pro
+qmake "USE_NATIVETOR=-" "USE_UPNP=1" "USE_QRCODE=1" OPENSSL_INCLUDE_PATH=/usr/local/ssl/include OPENSSL_LIB_PATH=/usr/local/ssl/lib denarius-qt.pro
 make -j4
 sudo cp ~/denarius/Denarius /usr/local/bin/Denarius
                 ;;
