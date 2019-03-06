@@ -130,3 +130,6 @@ cd ~/.denarius
 rm -rf database txleveldb smsgDB
 wget https://github.com/carsenk/denarius/releases/download/v3.3.6/chaindata1612994.zip
 unzip chaindata1612994.zip
+                ;;
+esac
+echo Selected $choice
