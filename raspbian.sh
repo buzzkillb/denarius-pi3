@@ -28,18 +28,18 @@ free -m
 #echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 echo "Installing Dependencies"
-sudo apt-get --assume-yes install git unzip build-essential libssl-dev libdb++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libgmp-dev libevent-dev autogen automake  libtool
+sudo apt-get --assume-yes install git unzip build-essential libssl-dev libdb++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libevent-dev autogen automake  libtool
 
-echo "Downgrade libssl-dev"
+echo "OpenSSL 1.0.1j"
 sudo apt-get install make
 wget https://www.openssl.org/source/openssl-1.0.1j.tar.gz
 tar -xzvf openssl-1.0.1j.tar.gz
 cd openssl-1.0.1j
-sudo ./config
-sudo make depend
-sudo make
+./config --openssldir=/usr/local/openssl1.0.1j shared
+make
+#  make test
 sudo make install
-sudo ln -sf /usr/local/ssl/bin/openssl `which openssl`
+ln -s /usr/local/openssl1.0.1j /usr/local/openssl
 cd ~
 openssl version -v
 
@@ -54,7 +54,7 @@ cd denarius
 git checkout v3.4
 git pull
 cd src
-OPENSSL_INCLUDE_PATH=/usr/local/ssl/include OPENSSL_LIB_PATH=/usr/local/ssl/lib make -f makefile.arm -j4
+OPENSSL_INCLUDE_PATH=/usr/local/openssl/include OPENSSL_LIB_PATH=/usr/local/openssl/lib make -f makefile.arm -j4
 strip denariusd
 sudo cp ~/denarius/src/denariusd /usr/local/bin/denariusd
 
@@ -99,14 +99,16 @@ free -m
 echo "Installing Dependencies"
 sudo apt-get --assume-yes install git unzip build-essential libdb++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libevent-dev autogen automake libtool libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools qt5-default
 
-echo "Downgrade libssl-dev"
+echo "OpenSSL 1.0.1j"
 sudo apt-get install make
 wget https://www.openssl.org/source/openssl-1.0.1j.tar.gz
 tar -xzvf openssl-1.0.1j.tar.gz
 cd openssl-1.0.1j
-sudo ./config
+./config --openssldir=/usr/local/openssl1.0.1j shared
+make
+#  make test
 sudo make install
-sudo ln -sf /usr/local/ssl/bin/openssl `which openssl`
+ln -s /usr/local/openssl1.0.1j /usr/local/openssl
 cd ~
 openssl version -v
 
@@ -120,7 +122,7 @@ git clone https://github.com/carsenk/denarius
 cd denarius
 git checkout v3.4
 git pull
-qmake "USE_NATIVETOR=-" "USE_UPNP=1" "USE_QRCODE=1" OPENSSL_INCLUDE_PATH=/usr/local/ssl/include OPENSSL_LIB_PATH=/usr/local/ssl/lib denarius-qt.pro
+qmake "USE_NATIVETOR=-" "USE_UPNP=1" "USE_QRCODE=1" OPENSSL_INCLUDE_PATH=/usr/local/openssl/include OPENSSL_LIB_PATH=/usr/local/openssl/lib denarius-qt.pro
 make -j4
 sudo cp ~/denarius/Denarius /usr/local/bin/Denarius
                 ;;
