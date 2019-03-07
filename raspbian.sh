@@ -36,6 +36,8 @@ wget https://www.openssl.org/source/openssl-1.0.1j.tar.gz
 tar -xzvf openssl-1.0.1j.tar.gz
 cd openssl-1.0.1j
 sudo ./config
+sudo make depend
+sudo make
 sudo make install
 sudo ln -sf /usr/local/ssl/bin/openssl `which openssl`
 cd ~
