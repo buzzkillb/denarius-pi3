@@ -39,7 +39,7 @@ cd openssl-1.0.1j
 make depend
 make
 #make test
-sudomake install
+sudo make install
 sudo ln -sf /usr/local/ssl/bin/openssl `which openssl`
 cd ~
 openssl version -v
@@ -105,11 +105,12 @@ sudo apt-get install make
 wget https://www.openssl.org/source/openssl-1.0.1j.tar.gz
 tar -xzvf openssl-1.0.1j.tar.gz
 cd openssl-1.0.1j
-./config --openssldir=/usr/local/openssl1.0.1j shared
+./config
+make depend
 make
-#  make test
+#make test
 sudo make install
-ln -s /usr/local/openssl1.0.1j /usr/local/openssl
+sudo ln -sf /usr/local/ssl/bin/openssl `which openssl`
 cd ~
 openssl version -v
 
@@ -123,8 +124,10 @@ git clone https://github.com/carsenk/denarius
 cd denarius
 git checkout v3.4
 git pull
-qmake "USE_NATIVETOR=-" "USE_UPNP=1" "USE_QRCODE=1" OPENSSL_INCLUDE_PATH=/usr/local/openssl/include OPENSSL_LIB_PATH=/usr/local/openssl/lib denarius-qt.pro
-make -j4
+export QT_SELECT=qt5
+qmake -v
+qmake "USE_NATIVETOR=-" "USE_UPNP=1" "USE_QRCODE=1" OPENSSL_INCLUDE_PATH=/usr/local/ssl/include OPENSSL_LIB_PATH=/usr/local/ssl/lib denarius-qt.pro
+make
 sudo cp ~/denarius/Denarius /usr/local/bin/Denarius
                 ;;
         3)      echo 3 "Get Chaindata"
