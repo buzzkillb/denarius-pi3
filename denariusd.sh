@@ -4,7 +4,7 @@ echo "this assumes you have dependencies already"
 sleep 10
 
 cd ~/Downloads
-wget https://triforce.black/d/denariusd
+wget https://github.com/buzzkillb/denarius-pi3/releases/download/v3.3.8alpha/denariusd
 chmod +x denariusd
 sudo cp denariusd /usr/local/bin/denariusd
 
