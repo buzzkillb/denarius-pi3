@@ -28,7 +28,7 @@ free -m
 #echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 echo "Installing Dependencies"
-sudo apt-get --assume-yes install git unzip build-essential libssl-dev libdb++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libevent-dev autogen automake  libtool
+sudo apt-get -y install git unzip build-essential libssl-dev libdb++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libevent-dev autogen automake  libtool
 
 echo "OpenSSL 1.0.1j"
 sudo apt-get install make
@@ -98,7 +98,7 @@ free -m
 #echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 echo "Installing Dependencies"
-sudo apt-get --assume-yes install git unzip build-essential libdb++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libevent-dev autogen automake libtool libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools qt5-default
+sudo apt-get -y install git unzip build-essential libdb++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libevent-dev autogen automake libtool libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools qt5-default
 
 echo "OpenSSL 1.0.1j"
 sudo apt-get install make
