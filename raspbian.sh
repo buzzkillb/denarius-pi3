@@ -136,8 +136,8 @@ echo "Get Chaindata"
 sudo apt-get -y install unzip
 cd ~/.denarius
 rm -rf database txleveldb smsgDB
-wget https://github.com/carsenk/denarius/releases/download/v3.3.6/chaindata1612994.zip
-unzip chaindata1612994.zip
+wget https://github.com/carsenk/denarius/releases/download/v3.3.7/chaindata1701122.zip
+unzip chaindata1701122.zip
                 ;;
 esac
 echo Selected $choice
