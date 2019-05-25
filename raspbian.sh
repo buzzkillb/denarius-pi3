@@ -52,7 +52,7 @@ openssl version -v
 echo "Installing Denarius Wallet"
 git clone https://github.com/carsenk/denarius
 cd denarius
-git checkout master
+git checkout v3.4
 git pull
 cd src
 OPENSSL_INCLUDE_PATH=/usr/local/ssl/include OPENSSL_LIB_PATH=/usr/local/ssl/lib make -f makefile.arm
@@ -122,7 +122,7 @@ openssl version -v
 echo "Installing Denarius Wallet"
 git clone https://github.com/carsenk/denarius
 cd denarius
-git checkout master
+git checkout v3.4
 git pull
 export QT_SELECT=qt5
 qmake -v
