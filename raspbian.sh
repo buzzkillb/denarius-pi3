@@ -52,8 +52,8 @@ openssl version -v
 echo "Installing Denarius Wallet"
 git clone https://github.com/carsenk/denarius
 cd denarius
-git checkout v3.4
-git pull
+#git checkout v3.4
+#git pull
 cd src
 OPENSSL_INCLUDE_PATH=/usr/local/ssl/include OPENSSL_LIB_PATH=/usr/local/ssl/lib make -f makefile.arm
 strip denariusd
@@ -122,8 +122,8 @@ openssl version -v
 echo "Installing Denarius Wallet"
 git clone https://github.com/carsenk/denarius
 cd denarius
-git checkout v3.4
-git pull
+#git checkout v3.4
+#git pull
 export QT_SELECT=qt5
 qmake -v
 qmake "USE_NATIVETOR=-" "USE_UPNP=1" "USE_QRCODE=1" OPENSSL_INCLUDE_PATH=/usr/local/ssl/include OPENSSL_LIB_PATH=/usr/local/ssl/lib denarius-qt.pro
@@ -136,8 +136,9 @@ echo "Get Chaindata"
 sudo apt-get -y install unzip
 cd ~/.denarius
 rm -rf database txleveldb smsgDB
-wget https://github.com/carsenk/denarius/releases/download/v3.3.7/chaindata1799510.zip
-unzip chaindata1799510.zip
+wget https://github.com/carsenk/denarius/releases/download/v3.3.9.1/chaindata2022527.zip
+unzip chaindata2022527.zip
+rm chaindata2022527.zip
                 ;;
 esac
 echo Selected $choice
