@@ -28,7 +28,7 @@ free -m
 #echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 echo "Installing Dependencies"
-sudo apt-get -y install git unzip build-essential libssl-dev libdb++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libevent-dev autogen automake  libtool
+sudo apt-get -y install git unzip build-essential libssl-dev libdb++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libevent-dev autogen automake  libtool libcurl4-openssl-dev
 
 echo "OpenSSL 1.0.1j"
 sudo apt-get install make
@@ -52,7 +52,7 @@ openssl version -v
 echo "Installing Denarius Wallet"
 git clone https://github.com/carsenk/denarius
 cd denarius
-git checkout v3.4
+git checkout master
 git pull
 cd src
 OPENSSL_INCLUDE_PATH=/usr/local/ssl/include OPENSSL_LIB_PATH=/usr/local/ssl/lib make -f makefile.arm
@@ -98,7 +98,7 @@ free -m
 #echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 echo "Installing Dependencies"
-sudo apt-get -y install git unzip build-essential libdb++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libevent-dev autogen automake libtool libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools qt5-default
+sudo apt-get -y install git unzip build-essential libdb++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libevent-dev autogen automake libtool libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools qt5-default libcurl4-openssl-dev
 
 echo "OpenSSL 1.0.1j"
 sudo apt-get install make
@@ -122,7 +122,7 @@ openssl version -v
 echo "Installing Denarius Wallet"
 git clone https://github.com/carsenk/denarius
 cd denarius
-git checkout v3.4
+git checkout master
 git pull
 export QT_SELECT=qt5
 qmake -v
@@ -136,9 +136,9 @@ echo "Get Chaindata"
 sudo apt-get -y install unzip
 cd ~/.denarius
 rm -rf database txleveldb smsgDB
-wget https://github.com/carsenk/denarius/releases/download/v3.3.9.1/chaindata2022527.zip
-unzip chaindata2022527.zip
-rm chaindata2022527.zip
+wget https://pos.watch/chaindata.zip
+unzip chaindata.zip
+rm chaindata.zip
                 ;;
 esac
 echo Selected $choice
