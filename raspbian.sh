@@ -136,9 +136,12 @@ echo "Get Chaindata"
 sudo apt-get -y install unzip
 cd ~/.denarius
 rm -rf database txleveldb smsgDB
-wget https://pos.watch/chaindata.zip
-unzip chaindata.zip
-rm chaindata.zip
+wget https://gitlab.com/buzzkillb/pichaindata/raw/master/chaindata.tar.gz
+tar xvzf chaindata.tar.gz
+rm chaindata.tar.gz
+#wget https://pos.watch/chaindata.zip
+#unzip chaindata.zip
+#rm chaindata.zip
                 ;;
 esac
 echo Selected $choice
