@@ -132,16 +132,17 @@ sudo cp ~/denarius/Denarius /usr/local/bin/Denarius
                 ;;
         3)      echo 3 "Get Chaindata"
 
-echo "Get Chaindata"
+echo "Stop Daemon and Get Chaindata"
+denariusd stop
 sudo apt-get -y install unzip
 cd ~/.denarius
 rm -rf database txleveldb smsgDB
-wget https://gitlab.com/buzzkillb/pichaindata/raw/master/chaindata.tar.gz
-tar xvzf chaindata.tar.gz
-rm chaindata.tar.gz
-#wget https://pos.watch/chaindata.zip
-#unzip chaindata.zip
-#rm chaindata.zip
+#wget https://gitlab.com/buzzkillb/pichaindata/raw/master/chaindata.tar.gz
+#tar xvzf chaindata.tar.gz
+#rm chaindata.tar.gz
+wget https://chaindata.pos.watch/pichaindata.zip
+unzip pichaindata.zip
+rm pichaindata.zip
                 ;;
 esac
 echo Selected $choice
