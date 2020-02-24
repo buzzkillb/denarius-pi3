@@ -140,7 +140,7 @@ rm -rf database txleveldb smsgDB
 #wget https://gitlab.com/buzzkillb/pichaindata/raw/master/chaindata.tar.gz
 #tar xvzf chaindata.tar.gz
 #rm chaindata.tar.gz
-wget https://chaindata.pos.watch/pichaindata.zip
+wget https://denarii.cloud/pichaindata.zip
 unzip pichaindata.zip
 rm pichaindata.zip
                 ;;
