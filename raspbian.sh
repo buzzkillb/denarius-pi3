@@ -32,7 +32,7 @@ sudo apt-get -y install git unzip build-essential libssl-dev libdb++-dev libboos
 
 echo "OpenSSL 1.0.1j"
 sudo apt-get install make
-wget https://www.openssl.org/source/openssl-1.0.1j.tar.gz
+wget https://ftp.openssl.org/source/old/1.0.1/openssl-1.0.1j.tar.gz
 tar -xzvf openssl-1.0.1j.tar.gz
 cd openssl-1.0.1j
 ./config
@@ -102,7 +102,7 @@ sudo apt-get -y install git unzip build-essential libdb++-dev libboost-all-dev l
 
 echo "OpenSSL 1.0.1j"
 sudo apt-get install make
-wget https://www.openssl.org/source/openssl-1.0.1j.tar.gz
+wget https://ftp.openssl.org/source/old/1.0.1/openssl-1.0.1j.tar.gz
 tar -xzvf openssl-1.0.1j.tar.gz
 cd openssl-1.0.1j
 ./config
